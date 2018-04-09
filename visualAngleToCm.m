@@ -6,7 +6,7 @@ function size = visualAngleToCm(angle,distanceFromMonitor)
 % Usage: size = visualAngleToCm(angle,distanceFromMonitor)
 
 if nargin < 2
-    distanceFromMonitor = 65;
+    distanceFromMonitor = 100;
 end
 % size is in cm
 

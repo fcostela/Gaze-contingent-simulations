@@ -110,7 +110,7 @@ while(1)
     destRect = CenterRect(destRect,Screen(win, 'Rect'));
     % Draw the frame on the screen
     Screen('FillRect',win,[0 0 0]);
-    Screen('DrawTexture', win, movieFrame, srcRect,destRect);
+%%%    Screen('DrawTexture', win, movieFrame, srcRect,destRect);
     
         WaitSecs(0.009);  % This line to test whether adding a delay here
     %     can reduce the latency. It can! 
@@ -187,7 +187,7 @@ while(1)
 % %                                 drawScotoma(win,x,y);
             
             %              for i = 1:30
-            Screen('DrawTexture', win, scotomaTex,maskOffScrnRect,scotomaRect);
+        %%%Screen('DrawTexture', win, scotomaTex,maskOffScrnRect,scotomaRect);
             %              end
             
             if latencyTestMode
@@ -196,6 +196,7 @@ while(1)
             end
             
             timingInfo.drawEndTime = [timingInfo.drawEndTime GetSecs]; 
+        drawCross(win, 1280, 720, 50)
         
         [VBLTimestamp StimulusOnsetTime FlipTimestamp Missed]=Screen('Flip', win);
         timingInfo.flipStart = [timingInfo.flipStart VBLTimestamp];
@@ -232,3 +233,16 @@ Screen('CloseMovie', movie); % close movie reader
 
 % Save the eyelink data, within a struct, to a .mat file.
 save(eyetrackoutputfile, 'moviefilename','eyetrackRecord');
+
+
+end
+
+function drawCross(win, x, y, crossDiameter)
+if ~exist('crossDiameter')
+    crossDiameter = 15;
+end
+colour = [255 255 0];
+penwidth = 4;
+Screen('Drawline',win, colour, x, y-(crossDiameter/2), x, y+(crossDiameter/2), penwidth);
+Screen('Drawline',win, colour, x-(crossDiameter/2), y, x+(crossDiameter/2), y, penwidth);
+end

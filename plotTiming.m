@@ -1,7 +1,7 @@
-if length(timingInfo.flipStart) > 200
-    b = 3:200;
+if length(timingInfo.flipStart) > 300
+    b = 2:300;
 else
-    b = 3:length(timingInfo.flipStart);
+    b = 2:length(timingInfo.flipStart);
 end
 % b = 3:1009;
 % b = 501:550;

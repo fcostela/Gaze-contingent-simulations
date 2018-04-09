@@ -1,12 +1,18 @@
 function timingInfo = artificialScotomaDemo(participantID, videoOrder)
+% The old code that was used to do simulated scotoma over video with
+% prediction, calling the also old playMovieWithScotomaPrediction. Replaced
+% by code using the gaze contingent engine (gazeContingentScotoma.m)
+%
+% Usage: timingInfo = artificialScotomaDemo(participantID, videoOrder)
+
 if ~exist('participantID')  participantID = ''; end;
 if ~exist('videoOrder')
     videoOrder =   Shuffle(1:200);
 end;
 videoRoot = '/Volumes/pelilab/Images & Videos/Videos/TV with LV/Compressed Clips/';
 % videoRoot = '/Users/danielsaunders/Free norm - video clips/';
-dummymode = 1; % In this mode, we don't access the eyetracker, but rather get a simulated gaze location from the mouse coordinates.
-latencyTestMode = 0; % In this mode, there are numerals in the top left of the screen, it plays one specific video in a loop,
+dummymode = 0; % In this mode, we don't access the eyetracker, but rather get a simulated gaze location from the mouse coordinates.
+latencyTestMode = 1; % In this mode, there are numerals in the top left of the screen, it plays one specific video in a loop,
                      % jitter reduction is disabled, and when tracking is
                      % lost the screen goes white.
 

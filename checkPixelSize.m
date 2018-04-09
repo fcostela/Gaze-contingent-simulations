@@ -22,9 +22,11 @@ text = 'Measure the length of one of the sides in cm. Then press space.';
 Screen('DrawText', window, text, 10, 10, [255 255 255]);
 Screen('flip',window);
 
-[answer, anstime]=get_key(KbName('space'), 1);  % wait for spacebar
+pause(25);
+sca;
+%[answer, anstime]=get_key(KbName('space'), 1);  % wait for spacebar
 
 Screen('CloseAll')
 clear mex
-measurement = input(sprintf('Now input the measured size in cm (corresponding to %d pixels) and press return: ',round(squareSize)));
-disp(sprintf('The ratio is %f cm/pixel, or %f pixels/cm.', measurement/squareSize, squareSize/measurement));
+%measurement = input(sprintf('Now input the measured size in cm (corresponding to %d pixels) and press return: ',round(squareSize)));
+%fdisp(sprintf('The ratio is %f cm/pixel, or %f pixels/cm.', measurement/squareSize, squareSize/ measurement));
